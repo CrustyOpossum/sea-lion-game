@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://scfo78g42fm8"]
+
+[ext_resource type="Script" uid="uid://cfirb3xnbmnmu" path="res://character_body_2d.gd" id="1_0hol4"]
+[ext_resource type="Texture2D" uid="uid://bto3pscq5k2to" path="res://REAL transparent isopod.jpg" id="2_q6r6c"]
+[ext_resource type="Script" uid="uid://dx3li3opi8o7s" path="res://bullet.gd" id="3_kdubu"]
+[ext_resource type="Texture2D" uid="uid://c4he60e3tu1m5" path="res://beachball.jpg" id="4_d21ai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek6p5"]
+size = Vector2(244.5, 155)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ek6p5"]
+radius = 63.07139
+
+[node name="Node2D" type="Node2D" unique_id=1143888491]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1666422949]
+script = ExtResource("1_0hol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=70793598]
+position = Vector2(221, 282)
+scale = Vector2(0.23730469, 0.23542945)
+texture = ExtResource("2_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1586687549]
+position = Vector2(221.75, 284.5)
+shape = SubResource("RectangleShape2D_ek6p5")
+
+[node name="beachball" type="Area2D" parent="." unique_id=73259708]
+script = ExtResource("3_kdubu")
+
+[node name="Sprite2D" type="Sprite2D" parent="beachball" unique_id=729048806]
+position = Vector2(358, 187.875)
+scale = Vector2(0.12987016, 0.12148267)
+texture = ExtResource("4_d21ai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="beachball" unique_id=1558577303]
+position = Vector2(360, 187)
+shape = SubResource("CircleShape2D_ek6p5")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dirwg74scaqeg"]
+
+[ext_resource type="Script" uid="uid://dx3li3opi8o7s" path="res://bullet.gd" id="1_g3si3"]
+[ext_resource type="Texture2D" uid="uid://c4he60e3tu1m5" path="res://beachball.jpg" id="2_1jepm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fi441"]
+radius = 63.07139
+
+[node name="Beachball" type="Area2D" unique_id=403637500]
+script = ExtResource("1_g3si3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=339005223]
+position = Vector2(358, 187.875)
+scale = Vector2(0.12987016, 0.12148267)
+texture = ExtResource("2_1jepm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1527335268]
+position = Vector2(360, 187)
+shape = SubResource("CircleShape2D_fi441")
