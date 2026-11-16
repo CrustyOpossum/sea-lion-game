@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cd3460pjl8sov"]
+
+[ext_resource type="Script" uid="uid://24cwqmowx0jd" path="res://player.gd" id="1_5pabv"]
+[ext_resource type="Texture2D" uid="uid://bto3pscq5k2to" path="res://REAL transparent isopod.jpg" id="2_uhn6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni8lh"]
+size = Vector2(244.5, 155)
+
+[node name="Node2D" type="Node2D" unique_id=1395121815]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=266302736]
+script = ExtResource("1_5pabv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=971668705]
+position = Vector2(221, 282)
+scale = Vector2(0.23730469, 0.23542945)
+texture = ExtResource("2_uhn6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1749322858]
+position = Vector2(224, 281)
+shape = SubResource("RectangleShape2D_ni8lh")

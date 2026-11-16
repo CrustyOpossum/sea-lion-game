@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 @onready var bullet = preload("res://beachball.tscn")
 
 func _physics_process(_delta):

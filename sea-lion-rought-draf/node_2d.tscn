@@ -3,9 +3,16 @@
 [ext_resource type="Script" uid="uid://cfirb3xnbmnmu" path="res://character_body_2d.gd" id="1_0hol4"]
 [ext_resource type="Texture2D" uid="uid://bto3pscq5k2to" path="res://REAL transparent isopod.jpg" id="2_q6r6c"]
 [ext_resource type="Script" uid="uid://dx3li3opi8o7s" path="res://bullet.gd" id="3_0hol4"]
-[ext_resource type="Texture2D" uid="uid://c4he60e3tu1m5" path="res://beachball.jpg" id="4_d21ai"]
-[ext_resource type="Texture2D" uid="uid://b65og0yy88iwg" path="res://scout.png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://bg1rpl301uewh" path="res://Untitled design (1).png" id="4_x0ka3"]
+[ext_resource type="Script" uid="uid://2hqol4ba8wxp" path="res://animatable_body_2d.gd" id="5_0h7mo"]
+[ext_resource type="Texture2D" uid="uid://bp0okylgr2fsh" path="res://IMG_0733.PNG" id="5_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://c1qp24sr5023w" path="res://IMG_0732.PNG" id="6_0h7mo"]
 [ext_resource type="Script" uid="uid://dnps2138fwlnd" path="res://hitbox.gd" id="6_kdubu"]
+[ext_resource type="Texture2D" uid="uid://bdkunfo6o2tqh" path="res://IMG_0731.PNG" id="7_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://by53c5o1vfj6v" path="res://IMG_0730.PNG" id="8_d2bti"]
+[ext_resource type="Texture2D" uid="uid://c0vv7p6xl5eq5" path="res://IMG_0729.PNG" id="9_ta5nu"]
+[ext_resource type="Texture2D" uid="uid://2wwee2ccfw5c" path="res://IMG_0728 (1).PNG" id="10_flf07"]
+[ext_resource type="Texture2D" uid="uid://dam7y83g0lybq" path="res://IMG_0728.PNG" id="11_k73cj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek6p5"]
 size = Vector2(244.5, 155)
@@ -13,11 +20,40 @@ size = Vector2(244.5, 155)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ek6p5"]
 radius = 63.07139
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_0h7mo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x0ka3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0h7mo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nr8wp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d2bti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ta5nu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_k73cj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_flf07")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 30.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfhvr"]
-size = Vector2(140, 280.5)
+size = Vector2(306, 264.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3kcl"]
-size = Vector2(146, 290)
+size = Vector2(313, 243)
 
 [node name="Node2D" type="Node2D" unique_id=1143888491]
 
@@ -30,7 +66,7 @@ scale = Vector2(0.23730469, 0.23542945)
 texture = ExtResource("2_q6r6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1586687549]
-position = Vector2(221.75, 284.5)
+position = Vector2(224, 281)
 shape = SubResource("RectangleShape2D_ek6p5")
 
 [node name="beachball" type="Area2D" parent="." unique_id=73259708]
@@ -38,28 +74,29 @@ script = ExtResource("3_0hol4")
 
 [node name="Sprite2D" type="Sprite2D" parent="beachball" unique_id=729048806]
 position = Vector2(358, 187.875)
-scale = Vector2(0.12987016, 0.12148267)
-texture = ExtResource("4_d21ai")
+scale = Vector2(0.5, 0.465)
+texture = ExtResource("4_x0ka3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="beachball" unique_id=1558577303]
-position = Vector2(360, 187)
+position = Vector2(358, 193)
 shape = SubResource("CircleShape2D_ek6p5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1735548375]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=285795795]
+script = ExtResource("5_0h7mo")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=112125284]
-position = Vector2(773, 197.00003)
-scale = Vector2(0.341623, 0.3219895)
-texture = ExtResource("5_q6r6c")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D" unique_id=686080922]
+position = Vector2(889, 184)
+scale = Vector2(0.15883239, 0.2406244)
+sprite_frames = SubResource("SpriteFrames_0h7mo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=718827734]
-position = Vector2(764, 205)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=718827734]
+position = Vector2(883, 185)
 shape = SubResource("RectangleShape2D_xfhvr")
 
-[node name="Hitbox" type="Area2D" parent="StaticBody2D" unique_id=25426474]
+[node name="Hitbox" type="Area2D" parent="AnimatableBody2D" unique_id=25426474]
 position = Vector2(697, 68)
 script = ExtResource("6_kdubu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Hitbox" unique_id=1071767559]
-position = Vector2(71, 135)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Hitbox" unique_id=1071767559]
+position = Vector2(194, 115)
 shape = SubResource("RectangleShape2D_k3kcl")
